@@ -56,11 +56,13 @@ class MessagesController extends RestController {
 
     public static function checkAuthorization(Request $request): bool {
         session_start();
-        var_dump('<pre>', $_SERVER['REQUEST_TIME'], '</pre>');
-        var_dump('<pre>', $_SERVER['REQUEST_URI'], '</pre>');
-        var_dump('<pre>', $_SERVER['REMOTE_ADDR'], '</pre>');
-        var_dump('<pre>', $_SERVER['REMOTE_HOST'], '</pre>');
-        var_dump('<pre>', $_SERVER['HTTP_USER_AGENT'], '</pre>');
+        //var_dump('<pre>', $_SERVER['REQUEST_TIME'], '</pre>');
+        //var_dump('<pre>', $_SERVER['REQUEST_URI'], '</pre>');
+        //var_dump('<pre>', $_SERVER['REMOTE_ADDR'], '</pre>');
+        //var_dump('<pre>', $_SERVER['REMOTE_HOST'], '</pre>');
+        //var_dump('<pre>', $_SERVER['HTTP_USER_AGENT'], '</pre>');
+
+
 
         //var_dump('<pre>', $_SERVER, '</pre>');
 

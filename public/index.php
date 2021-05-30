@@ -20,7 +20,9 @@ require_once('../controllers/auth.controller/login.controller.php');
 require_once('../controllers/studies.controller.php');
 require_once('../controllers/photos.controller.php');
 require_once('../controllers/test.controller/test-verifier.controller.php');
+require_once('../controllers/stat.controller.php');
 require_once('../core/active-record/active-record.core.php');
+require_once('../models/stat.model.php');
 
 
 $request = new Request();
@@ -38,6 +40,14 @@ $rootRouter->addController("/studies", new StudiesController());
 $rootRouter->addController("/photos", new PhotosController());
 $rootRouter->addController('/history', new HistoryController());
 $rootRouter->addController('/login', new LoginController());
+$rootRouter->addController('/stat', new StatController());
+
+
+$statRecord = new Stat();
+$statRecord->setIp($_SERVER['REMOTE_ADDR']);
+$statRecord->setUri($_SERVER['REQUEST_URI']);
+$statRecord->setBrowser($_SERVER['HTTP_USER_AGENT']);
+$statRecord->save();
 
 $res = $rootRouter->processRequest($request);
 echo $res;
