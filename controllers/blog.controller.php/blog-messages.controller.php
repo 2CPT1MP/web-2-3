@@ -33,13 +33,17 @@ class BlogMessagesController extends RestController {
     }
 
     public function GET(Request $request): string {
-        if (!MessagesController::checkAuthorization($request))
+        [$authenticated, $role] = MessagesController::checkAuthorization();
+
+        if (!$authenticated || $role !== "ADMIN")
             return LoginView::render('/blog/messages');
         return UploadBlogMessagesView::render();
     }
 
     public function POST(Request $request): string {
-        if (!MessagesController::checkAuthorization($request))
+        [$authenticated, $role] = MessagesController::checkAuthorization();
+
+        if (!$authenticated || $role !== "ADMIN")
             return LoginView::render('/blog/messages');
         if (!$this->submitRecords())
             return MessageView::render("Ошибка", "При попытке загрузки файла произошла ошибка");

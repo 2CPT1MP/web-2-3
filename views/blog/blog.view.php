@@ -39,8 +39,6 @@ class BlogView {
 
         $msgs .= "</article>";
 
-        //var_dump('<pre>', $messages, '</pre>');
-
         return $html . <<<EDITOR
             $msgs
             $pageInfo

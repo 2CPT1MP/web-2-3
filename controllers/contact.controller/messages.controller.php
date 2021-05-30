@@ -41,35 +41,33 @@ class MessagesController extends RestController {
     }
 
     public function GET(Request $request): string {
-        if ($this->checkAuthorization($request))
+        [$authenticated, $role] = MessagesController::checkAuthorization();
+
+        if ($authenticated && $role === "ADMIN")
             return UploadMessagesView::render();
         return LoginView::render('/contact/messages');
     }
 
     public function POST(Request $request): string {
-        if (!$this->checkAuthorization($request))
+        [$authenticated, $role] = MessagesController::checkAuthorization();
+
+        if (!$authenticated || $role !== "ADMIN")
             return LoginView::render('/contact/messages');
         if (!$this->uploadMessagesFile())
             return MessageView::render("Ошибка", "При попытке загрузки файла произошла ошибка");
         return MessageView::render("Файл загружен", "Файл был успешно загружен");
     }
 
-    public static function checkAuthorization(Request $request): bool {
+    public static function checkAuthorization(): array {
         session_start();
-        //var_dump('<pre>', $_SERVER['REQUEST_TIME'], '</pre>');
-        //var_dump('<pre>', $_SERVER['REQUEST_URI'], '</pre>');
-        //var_dump('<pre>', $_SERVER['REMOTE_ADDR'], '</pre>');
-        //var_dump('<pre>', $_SERVER['REMOTE_HOST'], '</pre>');
-        //var_dump('<pre>', $_SERVER['HTTP_USER_AGENT'], '</pre>');
 
-
-
-        //var_dump('<pre>', $_SERVER, '</pre>');
-
-        if (!isset($_SESSION['username']) || !isset($_SESSION['password'])) {
-            http_response_code(401);
-            return false;
+        if (!isset($_SESSION['username']) ||
+            !isset($_SESSION['password']) ||
+            !isset($_SESSION['role'])) {
+                http_response_code(401);
+                return [false, 'NONE'];
         }
-        return true;
+
+        return [true, $_SESSION['role']];
     }
 }

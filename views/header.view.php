@@ -2,6 +2,31 @@
 
 class HeaderView {
     public static function render(string $title): string {
+        if (!isset($_SESSION)) session_start();
+
+        $name = "Неавторизован<br>";
+        $role = "";
+        $logout = "<a href='/logout'>Выйти</a><br>";
+        $login = "<a href='/login'>Войти</a><br>";
+        $register = "<a href='/register'>Регистрация</a><br>";
+        $btn = "";
+
+        if (isset($_SESSION['username']) && isset($_SESSION['role'])) {
+            if (isset($_SESSION['name']))
+                $name = $_SESSION['name'];
+            else
+                $name = "";
+            $name .= '<br>';
+            $role = $_SESSION['role'] === "ADMIN"? "Админ" : "Пользователь";
+            $role .= '<br>';
+            $btn .= $logout;
+        } else {
+            $btn .= $login . $register;
+        }
+
+
+
+
         $html = <<<HTML
             <head>
                 <meta charset="utf-8">
@@ -23,6 +48,7 @@ class HeaderView {
             <header class="dark-background">
                 <h1 class="site-title">Личный сайт</h1>
                 <p id="header-date" class="dark-background"> </p>
+                {$name} {$role} {$btn}
             </header>
             <nav class="flex-row-container">
         HTML;
