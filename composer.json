@@ -1,0 +1,7 @@
+{
+  "name": "2cpt1mp/web-2.2",
+  "description": "",
+  "require": {
+    "ext-pdo": "*"
+  }
+}

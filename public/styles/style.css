@@ -1,0 +1,323 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-size: 1.25rem;
+}
+
+a {
+	text-decoration: none;
+	color: black;
+}
+
+@font-face {
+	  font-family: "Gabriola";
+	  src: url("../fonts/Gabriola.eot"); /* IE9*/
+	  src: url("../fonts/Gabriola.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+	  url("../fonts/Garbriola.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+	  url("../fonts/Gabriola.svg#Gabriola") format("svg"); /* iOS 4.1- */
+}
+
+body {
+	font-family: Gabriola, serif;
+	font-size: 1.5em;
+	color: #230c33;
+	margin-bottom: 3.0rem;
+}
+
+.main-footer{
+	position: fixed;
+	bottom: 0px;
+	width: 100%;
+}
+
+.main-footer > p {
+	text-align: center;
+	color: white;
+	text-indent: 0;
+	padding: 0.25em;
+}
+
+.dark-background {
+	background-color: #230c33;
+	color: white;
+}
+
+.site-title {
+	font-weight: 900;
+	font-size: 3em;
+}
+
+#header-date {
+	padding-top: 0;
+
+	text-indent: 0;
+	text-align: center;
+	font-size: 1em;
+}
+
+
+h1, h2 {
+	text-align: center;
+	text-transform: uppercase;
+}
+
+h1, h2, h3 {
+	padding-top: 0.6em;
+	line-height: 1;
+}
+
+h2 {
+	font-size: 150%;
+	color: black;
+}
+
+h3 {
+	margin-top: 1rem;
+}
+
+p, h1, h2, h3, h4 {
+	margin: 0 2% 0 4%;
+}
+
+
+p, .regular-list {
+	text-align: justify;
+	color: black;
+	font-size: 100%;
+}
+
+.regular-list ul {
+	list-style: none;
+}
+
+.roman-list {
+	list-style-type: upper-roman;
+}
+
+nav a, nav div {
+	padding: 0.29em 0.5em 0em 0.5em;
+	color: white;
+}
+
+nav, #sublist {
+	background-color: #592e83;
+	display: flex;
+	justify-content: center;
+	text-transform: uppercase;
+	text-align: center;
+	flex-direction: row;
+	z-index: 100;
+}
+
+
+
+
+.card {
+	padding: 1em;
+	display: block;
+	width: 90%;
+	margin: 1% auto;
+}
+
+
+.profile-pic {
+	display: flex;
+	margin: auto;
+}
+
+.th {
+	font-weight: bold;
+}
+
+td {
+	padding: 1vh 1vw;
+	vertical-align: center;
+}
+
+table {
+	margin: 0 auto;
+}
+
+.border-table, .border-table td, .border-table th  {
+	border: solid #230c33 1px;
+	border-collapse: collapse;
+}
+
+.image-title {
+	text-indent: 0;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+
+.centered {
+	text-align: center;
+}
+
+
+.flex-container {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-around;
+	max-width: 30cm;
+	margin: auto;
+	vertical-align: top;
+	position: relative;
+}
+
+.flex-item {
+	margin: 1.0%;
+	box-shadow: 0 0 0.8vh 0.2vh rgba(89, 46, 131, 0.6);
+}
+
+.flex-item:hover {
+	box-shadow: 0 0 0.8vh 0.2vh rgba(89, 46, 131, 0.8);
+}
+
+
+
+
+input[type=text], input[type=password], input[type=email], select, option,
+input[type=submit], input[type=reset], textarea, input[type=number], input[type=tel], input[type=file], button {
+	padding: 1.25%;
+	display: inline-block;
+	width: 100%;
+	box-sizing: border-box;
+	font-size: 80%;
+}
+
+select[multiple] option {
+	display: block;
+}
+
+button, input[type=submit], input[type=reset] {
+	margin-top: 1em;
+}
+
+textarea {
+	resize: none;
+	margin: 0;
+	text-indent: 0;
+}
+
+@media (hover: none) {
+	body {
+		font-size: 350%;
+	}
+	img {
+		width: 100%;
+	}
+	.profile-pic {
+		width: 75%;
+	}
+}
+
+@media (hover: none) and (orientation: landscape) {
+	body {
+		font-size: 200%;
+	}
+}	
+
+@media (max-width: 770px) and (hover)
+{
+	nav {
+		flex-direction: column;
+	}
+
+	.main-header {
+		font-size: 4vw;
+		padding: 3% 5% 0 5%;
+	}
+}
+
+@media (max-width: 1450px) and (hover: none)
+{
+	nav {
+		flex-direction: column;
+	}
+
+	.main-header {
+		font-size: 4vw;
+		padding: 3% 5% 0% 5%;
+	}
+}
+
+.links, nav>a {
+	display: inline;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+#sublist {
+	padding: 0;
+	text-align: left;
+	display: none;
+	text-transform: capitalize;
+	position: absolute;
+	background-color: #592e83;
+	flex-direction: column;
+}
+
+nav div img {
+	filter: invert(100%);
+	width: 1em;
+}
+
+div.links {
+	padding: 0;
+}
+
+
+img {
+	max-width: 50em;
+	width: 200px;
+}
+
+img.enlarged {
+	width: 90vw;
+}
+
+#gallery-div img{
+	width: auto;
+	height: 50vh;
+}
+
+.img-container div img {
+	width: 200px;
+}
+
+.calendar-cell {
+	cursor: grab;
+}
+
+.msg-block {
+	margin-bottom: 2em;
+	margin-top: 2em;
+}
+
+input, select {
+	margin-bottom: 1em;
+}
+
+h2 {
+	margin-top: 2em;
+}
+
+.card h2 {
+	margin-top: 0;
+}
+
+.correct {
+	color: green;
+}
+
+.wrong {
+	color: red;
+}
+
+.no-margin {
+	margin: 0;
+}
+
+

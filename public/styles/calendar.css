@@ -1,0 +1,36 @@
+.calendar {
+    display: none;
+    margin: auto;
+    padding: 1em 0;
+}
+
+.calendar-header {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 23em;
+}
+
+.calendar-data {
+    max-width: 12em;
+}
+
+.calendar-header > div {
+    min-width: 1.1em;
+    padding: 0.1em 0.25em;
+    background-color: #230c33;
+    color: white;
+    text-align: center;
+}
+
+.calendar-data > div {
+
+    background-color: #592e83;
+
+
+}
+
+.calendar-data > div:hover {
+    background-color: #230c33;
+}
+
+
