@@ -23,6 +23,7 @@ require_once('../controllers/studies.controller.php');
 require_once('../controllers/photos.controller.php');
 require_once('../controllers/test.controller/test-verifier.controller.php');
 require_once('../controllers/stat.controller.php');
+require_once('../controllers/admin.controller.php');
 require_once('../core/active-record/active-record.core.php');
 require_once('../models/stat.model.php');
 
@@ -45,6 +46,7 @@ $rootRouter->addController('/login', new LoginController());
 $rootRouter->addController('/logout', new LogoutController());
 $rootRouter->addController('/register', new RegisterController());
 $rootRouter->addController('/stat', new StatController());
+$rootRouter->addController('/admin', new AdminController());
 
 
 $statRecord = new Stat();

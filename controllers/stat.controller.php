@@ -7,6 +7,11 @@ class StatController extends RestController {
     }
 
     public function GET(Request $request): string {
+        [$authenticated, $role] = MessagesController::checkAuthorization();
+
+        if (!$authenticated || $role !== "ADMIN")
+            header("Location: /login");
+
         $page = 1;
         $recordsPerPage = 10;
 

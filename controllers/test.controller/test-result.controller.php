@@ -10,6 +10,11 @@ class TestResultController extends RestController {
     }
 
     public function GET(Request $request): string {
+        [$authenticated, $role] = MessagesController::checkAuthorization();
+
+        if (!$authenticated)
+            header("Location: /login");
+
         if (!isset($request->getParams()["id"]))
             return $this->showAllResults();
 

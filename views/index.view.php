@@ -24,6 +24,7 @@ class IndexView {
                         </tr>
                     </table>
                     <b><a href="/blog">Персональный блог</a></b><br>
+                    <b><a href="/admin">Администрирование</a></b><br>
                     <!--<a href="/history">Просмотр истории посещений</a>-->
                 </article>
             </main>
